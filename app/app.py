@@ -1,12 +1,17 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return "!HELLOW WORLD!"
+    # return "!neifer! changes in debug"
+    data = {
+        'titulo': 'index',
+        'bienvenido': '!saludos!'
+    }
+    return render_template('index.html', data=data)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, port=5000)
